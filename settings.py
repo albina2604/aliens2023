@@ -13,6 +13,6 @@ class Settings():
 
         # Параметры снаряда
         self.bullet_speed = 1
-        self.bullet_speed = 3
+        self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
