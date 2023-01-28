@@ -25,7 +25,7 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group()
 
     def run_game(self):
-        """Запускосновного центра игры"""
+        """Запуск основного центра игры"""
         while True:
             self._check_events()
             self.ship.update()
