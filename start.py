@@ -30,9 +30,20 @@ class AlienInvasion:
 
     def _create_fleet(self):
         """Создание флота пришельцев"""
-        # Создание пришельца
+        # Создание пришельца и расчет количества пришельцев в ряду
+        # Интервал между соседними пришельцами равен ширине пришельца
         alien = Alien(self)
-        self.aliens.add(alien)
+        alien_width = alien.rect.width
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        number_aliens_x = available_space_x // (2 * alien_width)
+
+        # Создание первого ряда пришельцев
+        for alien_number in range(number_aliens_x):
+            # Создание пришельца и расположение его в ряду
+            alien = Alien(self)
+            alien.x = alien_width + 2 * alien_width * alien_number
+            alien.rect.x = alien.x
+            self.aliens.add(alien)
 
     def run_game(self):
         """Запуск основного центра игры"""
