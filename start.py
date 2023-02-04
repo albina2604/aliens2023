@@ -125,6 +125,11 @@ class AlienInvasion:
         # Проверка попадения в пришельца
         collisions = pygame.sprite.groupcollide(
             self.bullets, self.aliens, True, True)
+        
+        if not self.aliens:
+            # Уничножение существуещих снарядов и создание нового флота
+            self.bullets.empty()
+            self._create_fleet()
 
     def _update_aliens(self):
         """Обновляет позиции всех пришельцев с флота"""
