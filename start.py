@@ -168,6 +168,7 @@ class AlienInvasion:
             self.bullets.empty()
             sleep(0.1)
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _update_aliens(self):
         """Обновляет позиции всех пришельцев с флота"""
