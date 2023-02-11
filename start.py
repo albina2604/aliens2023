@@ -120,6 +120,9 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
 
+            # Указка мышки прячется
+            pygame.mouse.set_visible(False)
+
     def _check_keydown_event(self, event):
         """Реагирует на нажатие клавиш"""
         if event.key == pygame.K_RIGHT:
@@ -202,8 +205,10 @@ class AlienInvasion:
 
             # Пауза
             sleep(0.5)
+
         else:
             self.stats.game_active = False
+            pygame.mouse.set_visible(True)
 
     def _update_screen(self):
         """Обновляет изображение на экране и отображает новый экран"""
