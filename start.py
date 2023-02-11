@@ -114,6 +114,7 @@ class AlienInvasion:
             self.settings.initialyze_dynamic_settings()
             self.stats.reset_stats()
             self.stats.game_active = True
+            self.sb.prep_score()
 
             # Очищение списка пришельцев и снарядов
             self.aliens.empty()
@@ -165,6 +166,11 @@ class AlienInvasion:
         # Проверка попадения в пришельца
         collisions = pygame.sprite.groupcollide(
             self.bullets, self.aliens, True, True)
+
+        if collisions:
+            for aliens in collisions.values():
+                self.stats.score += self.settings.alien_points * len(aliens)
+            self.sb.prep_score()
 
         if not self.aliens:
             # Уничножение существуещих снарядов и создание нового флота
